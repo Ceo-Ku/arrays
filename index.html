@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Centro Médico Ñuñoa</title>
 </head>
 <script>
-document.write('<p>Estadisticas centro medico ñuñoa</p>');
+document.write('<p>Estadísticas centro médico Ñuñoa</p>');
 
 var radiologia = [
     {hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'},
@@ -36,12 +35,30 @@ var dental = [
     {hora: '14:00', especialista: 'RAQUEL VILLASECA',       paciente: 'ANA SEPULVEDA',  rut: '14441281-0', prevision: 'ISAPRE'},
 ];
 
-//Agregar código para el desafio 2 aquí
+//Agregar código para el desafío 2 aquí
+var first_element = radiologia.shift()
+var last_element = radiologia.pop()
+
+console.log(first_element, last_element, radiologia)
+
+var filas_consulta = dental.map(consulta => `<li>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</li>`)
+
+document.write('<ul>' + filas_consulta.join('\n') + '</ul>')
+
+var nombres_pacientes = []
+radiologia.forEach(consulta => nombres_pacientes.push(consulta.paciente))
+traumatologia.forEach(consulta => nombres_pacientes.push(consulta.paciente))
+dental.forEach(consulta => nombres_pacientes.push(consulta.paciente))
+
+//console.log(nombres_pacientes)
+
+var li_pacientes = nombres_pacientes.map(nombre => `<li>${ nombre }</li>`)
+
+document.write(`<ul>${li_pacientes.join('')}</ul>`)
 
 
 
-
-//Agregar código para el desafio 2 aquí
+//Agregar código para el desafío 2 aquí
 
 document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
