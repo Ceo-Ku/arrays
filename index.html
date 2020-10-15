@@ -57,6 +57,13 @@ var li_pacientes = nombres_pacientes.map(nombre => `<li>${ nombre }</li>`)
 document.write(`<ul>${li_pacientes.join('')}</ul>`)
 
 
+var pacientes_isapre = dental.filter(paciente => paciente.prevision == 'ISAPRE')
+                             .map(paciente => `<li>${paciente.paciente} - ${paciente.prevision}`)
+console.log(pacientes_isapre)
+document.write(`<ul>${pacientes_isapre.join('\n')}</ul>`)
+
+
+
 
 //Agregar código para el desafío 2 aquí
 
